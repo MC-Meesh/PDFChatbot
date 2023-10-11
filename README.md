@@ -17,7 +17,7 @@ Python 3.x \
 OpenAI or HuggingFace API key.
 ### Installation
 Clone the repository:
-``` git clone https://github.com/yourusername/RAGpdfBot.git ``` \
+``` git clone https://github.com/MC-Meesh/PDFChatbot.git ``` \
 Navigate to the project directory:
 ```cd PDFChatbot```\
 Install the required packages:
