@@ -1,6 +1,7 @@
 import streamlit as st
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
+import re
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import HuggingFaceInstructEmbeddings, OpenAIEmbeddings
 from langchain.vectorstores import FAISS
@@ -46,15 +47,21 @@ def get_conversation_chain(vectorstore):
     )
     return conversation_chain
 
+def strip_html_tags(html_str):
+    clean = re.compile('<.*?>')
+    return re.sub(clean, '', html_str)
+
+
 def handle_user_input(user_question):
     response = st.session_state.conversation({'question': user_question})
     st.session_state.chat_history = response['chat_history']
     
     for i, message in enumerate(st.session_state.chat_history):
+        clean_message = strip_html_tags(message.content)
         if i % 2 == 0:
-            st.write(user_template.replace("{{MSG}}", message.content))
+            st.write(f"User: {clean_message}")
         else:
-            st.write(bot_template.replace("{{MSG}}", message.content))
+            st.write(f"Bot: {clean_message}")
     return
 
 def main():
