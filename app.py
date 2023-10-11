@@ -9,7 +9,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
 
-from html_template import css, bot_template, user_template
+from html_template import css
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -53,6 +53,10 @@ def strip_html_tags(html_str):
 
 
 def handle_user_input(user_question):
+    if st.session_state.conversation is None:
+        st.write("Please process the PDFs before asking a question.")
+        return
+    
     response = st.session_state.conversation({'question': user_question})
     st.session_state.chat_history = response['chat_history']
     
@@ -100,10 +104,6 @@ def main():
 
                 # create conversation chain (persisted with st.session_state)
                 st.session_state.conversation = get_conversation_chain(vectorstore) 
-
-
-    
-
 
 
 
