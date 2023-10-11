@@ -3,6 +3,9 @@ This project leverages the power of Retrieval Augmented Generation (RAG) to prov
 Dive deep into your document's content with the chatbot interface and fetch relevant insights.
 This project is a modification of [Alejandro AO's Implementation](https://github.com/alejandro-ao/ask-multiple-pdfs)
 
+![PDFChatbot Screenshot](docs/demo.png)
+
+
 ## Features
 PDF Content Extraction: Seamlessly extract and process text content from multiple PDFs.
 Conversational Interface: Engage in a chat-like experience to ask questions about your documents.
