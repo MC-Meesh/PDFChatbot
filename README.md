@@ -1,5 +1,5 @@
 # PDFChatbot: Conversational Insights from PDFs
-This project leverages the power of Retrieval Augmented Generation (RAG) to provide conversational interfaces that answer questions directly from multiple PDFs using Vector Embedding.
+This simple project leverages the power of Retrieval Augmented Generation (RAG) to provide conversational interfaces that answer questions directly from multiple PDFs using Vector Embedding.
 Dive deep into your document's content with the chatbot interface and fetch relevant insights.
 This project is a modification of [Alejandro AO's Implementation](https://github.com/alejandro-ao/ask-multiple-pdfs)
 
